@@ -1,0 +1,258 @@
+{
+  "schemaVersion": "uizze.visual-evidence.v1",
+  "scope": "Polish pass on the Tasks home screen and its add sheets (accent lock, one grey family, radius scale, contrast, copy, motion, loading state). CSS viewport 480x800 for all captures; pixel sizes noted per check.",
+  "platform": "web",
+  "sources": [
+    {
+      "path": "../../../lib/theme/app_theme.dart",
+      "sha256": "47a9305cf9df5b397de3caedf29fdeb121b87973507aa0bd0061f83fecc387ec"
+    },
+    {
+      "path": "../../../lib/screens/home_screen.dart",
+      "sha256": "c02cecd3c0df112e0f232775df24161dba9948921fae132df22eb26953c910ef"
+    },
+    {
+      "path": "../../../lib/screens/main_navigator.dart",
+      "sha256": "9ead86367358018580714d5c7355673d9ab1a00fc74394ed5006e19791c932e6"
+    },
+    {
+      "path": "../../../lib/providers/todo_provider.dart",
+      "sha256": "8e7e29200d3ac5532ff08ce1c04a2cf1fd007c069a01c1bbc53b39e5e17963e7"
+    },
+    {
+      "path": "../../../lib/widgets/todo_tile.dart",
+      "sha256": "1dfbbea4f6a2412ae53e8a98fd97431bafb751b4c270a7a5e508b5fbb5129a5b"
+    },
+    {
+      "path": "../../../lib/widgets/daily_task_tile.dart",
+      "sha256": "26176572cd1372f5986edc33a6a1f36e6fc3fc5fca8783349a57082abe5b4be5"
+    },
+    {
+      "path": "../../../lib/widgets/completion_toggle.dart",
+      "sha256": "165368839261adf5ca1eaea0ae97beda0f54bb95a36e98ddb4ecd114903ac085"
+    },
+    {
+      "path": "../../../lib/widgets/stats_header.dart",
+      "sha256": "0ef6be564847f6802241f9b23c327a01300b0e68fb65930179b4d94fec1eec1e"
+    },
+    {
+      "path": "../../../lib/widgets/day_progress_arc.dart",
+      "sha256": "2c8d087867f787112796f1c4e9d908481128e425ddff011f035332e15cc572d5"
+    },
+    {
+      "path": "../../../lib/widgets/add_todo_sheet.dart",
+      "sha256": "8ced9bc65e27a28afae8a24da341afec8e3a9bd45de6f2b5196c22aa20e9018d"
+    },
+    {
+      "path": "../../../lib/widgets/add_daily_task_sheet.dart",
+      "sha256": "b325a787c95229d59dd03c7471333c1d0c10603d514b5281fed4ded885fa538d"
+    },
+    {
+      "path": "../../../lib/widgets/new_item_sheet.dart",
+      "sha256": "4c735d9cf7151cf4f77ebdfee20706556f9dc4b1fb62ac017364800d90b69fd2"
+    }
+  ],
+  "comparison": "existing-system",
+  "baseline": [
+    {
+      "path": "baseline-light-top.jpg",
+      "kind": "image",
+      "sha256": "68df777fafe462c7c56d90c94e4dac006c3534ba3317970c8fd91471b5c5e31b"
+    },
+    {
+      "path": "baseline-light-todos.jpg",
+      "kind": "image",
+      "sha256": "022b49e32101f939f582ea35a59be82e0d39919d043afd448a880dd37f736cdc"
+    },
+    {
+      "path": "baseline-dark-top.jpg",
+      "kind": "image",
+      "sha256": "f6256e546402ba3ca3f5a25fd657a9193cebaa2847f7073f8afd83d6a15ead14"
+    }
+  ],
+  "requiredChecks": [
+    {
+      "id": "light-top",
+      "kind": "visual"
+    },
+    {
+      "id": "light-todos",
+      "kind": "visual"
+    },
+    {
+      "id": "dark-top",
+      "kind": "visual"
+    },
+    {
+      "id": "add-sheet",
+      "kind": "interaction"
+    },
+    {
+      "id": "return-to-save",
+      "kind": "interaction"
+    },
+    {
+      "id": "large-text-dock",
+      "kind": "visual"
+    },
+    {
+      "id": "cold-start-no-empty-flash",
+      "kind": "visual"
+    },
+    {
+      "id": "native-ios-android",
+      "kind": "visual"
+    }
+  ],
+  "checks": [
+    {
+      "id": "light-top",
+      "status": "pass",
+      "state": "Light theme, seeded data (3 open to-dos incl. 1 overdue, 1 done, 2 habits), scrolled to top",
+      "environment": {
+        "kind": "browser",
+        "name": "Claude desktop browser pane (Chromium), Flutter web debug build in 412x732 MobileFrame",
+        "width": 960,
+        "height": 1600
+      },
+      "observed": "Same-size (960x1600) comparison with baseline-light-top.jpg: layout, arc, search, stats and dock positions unchanged. + button now uses the same green as the ticks (one accent); 'Tasks' title is neutral instead of dark green; habit repeat icon is neutral instead of an orange disc; 'Daily habits' in sentence case; secondary text darker (onSurfaceVariant); 'reminder off' now stated in words.",
+      "artifacts": [
+        {
+          "path": "after-light-top.jpg",
+          "kind": "image",
+          "sha256": "03292108a3b74c8b0c82ae5bd945385af9e79f647cf6e30242a22d3442046382"
+        }
+      ]
+    },
+    {
+      "id": "light-todos",
+      "status": "pass",
+      "state": "Light theme, To-dos section in view",
+      "environment": {
+        "kind": "browser",
+        "name": "Claude desktop browser pane (Chromium), Flutter web debug build in 412x732 MobileFrame",
+        "width": 519,
+        "height": 864
+      },
+      "observed": "Compared by eye with baseline-light-todos.jpg (600x1000; pane scale differs, same CSS viewport). Medium/Today now amber-700 (#B45309) instead of #FF6F00; Low stays neutral; Overdue red with date. Last row clears the bottom bar. Third row shows a pointer-hover highlight, not a defect.",
+      "artifacts": [
+        {
+          "path": "after-light-todos.jpg",
+          "kind": "image",
+          "sha256": "806385d333a07c813c731c02ec207e8896da531dcd14a29ae12bea5998543237"
+        }
+      ]
+    },
+    {
+      "id": "dark-top",
+      "status": "pass",
+      "state": "Dark theme, top of screen",
+      "environment": {
+        "kind": "browser",
+        "name": "Claude desktop browser pane (Chromium), Flutter web debug build in 412x732 MobileFrame",
+        "width": 519,
+        "height": 864
+      },
+      "observed": "Compared by eye with baseline-dark-top.jpg (960x1600). Bottom bar now slate like the cards and background (previously green-tinted grey); arc night end is a visible indigo instead of vanishing into the background; + button matches the accent.",
+      "artifacts": [
+        {
+          "path": "after-dark-top.jpg",
+          "kind": "image",
+          "sha256": "81cb1bb31400bf15cf2b9fd775cf6187f48f58d6d528e55aee0640812c4cca64"
+        }
+      ]
+    },
+    {
+      "id": "add-sheet",
+      "status": "pass",
+      "state": "Dark theme, + sheet open, title typed, High selected",
+      "environment": {
+        "kind": "browser",
+        "name": "Claude desktop browser pane (Chromium), Flutter web debug build in 412x732 MobileFrame",
+        "width": 519,
+        "height": 864
+      },
+      "steps": [
+        "Tap +",
+        "Type 'Return library book'",
+        "Tap High"
+      ],
+      "observed": "Labels read To-do / Daily habit, Title, Due date (optional), Add to-do. Add button enables once a title exists. Unselected priority flags neutral; selected High tinted red with no checkmark overlapping the flag.",
+      "artifacts": [
+        {
+          "path": "after-add-sheet-dark.jpg",
+          "kind": "image",
+          "sha256": "43c85274157d22aa21396c8fa7cdfbbb1544ec898a2d61a60e4d4d3573aa9da6"
+        }
+      ]
+    },
+    {
+      "id": "return-to-save",
+      "status": "pass",
+      "state": "Dark theme, after pressing Return in the Title field",
+      "environment": {
+        "kind": "browser",
+        "name": "Claude desktop browser pane (Chromium), Flutter web debug build in 412x732 MobileFrame",
+        "width": 311,
+        "height": 517
+      },
+      "steps": [
+        "Focus Title field (focus border visible)",
+        "Press Return"
+      ],
+      "observed": "Sheet closed and the summary changed from 3 to 4 to do.",
+      "artifacts": [
+        {
+          "path": "after-return-saved-dark.jpg",
+          "kind": "image",
+          "sha256": "e2fd9ae76ad79ee80206ae37b03002bca501316ba8eda453866c8bf87d66bde8"
+        }
+      ]
+    },
+    {
+      "id": "large-text-dock",
+      "status": "blocked",
+      "state": "Text scale above 1.3x",
+      "environment": {
+        "kind": "browser",
+        "name": "Claude desktop browser pane (Chromium), Flutter web debug build in 412x732 MobileFrame",
+        "width": 519,
+        "height": 864
+      },
+      "observed": "Blocked: the browser pane cannot set Flutter's text scale factor. The cap (MediaQuery.withClampedTextScaling max 1.3) is a code-only change, not visually verified.",
+      "artifacts": []
+    },
+    {
+      "id": "cold-start-no-empty-flash",
+      "status": "blocked",
+      "state": "First frame before SharedPreferences load completes",
+      "environment": {
+        "kind": "browser",
+        "name": "Claude desktop browser pane (Chromium), Flutter web debug build in 412x732 MobileFrame",
+        "width": 519,
+        "height": 864
+      },
+      "observed": "Blocked: on web the load finishes before a capture can be taken. The isLoaded guard is a code-only change, not visually verified.",
+      "artifacts": []
+    },
+    {
+      "id": "native-ios-android",
+      "status": "blocked",
+      "state": "Same screens on an iOS/Android simulator or device",
+      "environment": {
+        "kind": "browser",
+        "name": "Claude desktop browser pane (Chromium), Flutter web debug build in 412x732 MobileFrame",
+        "width": 519,
+        "height": 864
+      },
+      "observed": "Blocked: no simulator or device run in this session. Browser captures do not verify native rendering, haptics, safe areas or the real SnackBar position.",
+      "artifacts": []
+    }
+  ],
+  "unresolved": [
+    "large-text-dock: not visually verified (no way to set text scale in the browser pane)",
+    "cold-start-no-empty-flash: not visually verified (load too fast to capture on web)",
+    "native-ios-android: no simulator/device evidence",
+    "No Uizze MCP references or image-generation tool available; comparison is against the incumbent screen only, not a generated target"
+  ]
+}
